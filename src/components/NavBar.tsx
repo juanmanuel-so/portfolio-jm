@@ -1,0 +1,104 @@
+import Link from "next/link"
+import { ReactNode } from "react"
+const NavBar = ({ lang }: { lang: string }) => {
+  const { home, projects } = getTexts(lang)
+  return (
+    <nav className="absolute *: self-center  w-screen text-white top-4">
+      <ul className="w-fit mx-auto border border-neutral-200 dark:border-neutral-700 bg-juan-dark rounded-xl shadow-lg font-light">
+        <NavItem href={"/" + lang}>
+          {home}
+        </NavItem>
+        <NavItemDropMenu href={"/" + lang + "/projects"} content={
+          [
+            {
+              title: 'Hypermantis',
+              description: 'Aplicación de escritorio para visualizar imágenes hiperespectrales',
+              href: '/' + lang + '/projects/hypermantis'
+            },
+            {
+              title: 'Otro Proyecto',
+              description: 'Descripción del otro proyecto',
+              href: '/' + lang + '/projects/other-project'
+            }
+          ]
+        }>
+          <button className="peer">
+            {projects}
+          </button>
+
+        </NavItemDropMenu>
+        <div className="absolute left-0 top-full hidden peer-hover:block peer-focus:block">
+          <ul className="bg-juan-dark rounded-lg shadow-lg">
+            <NavItem href={"/" + lang + "/projects/hypermantis"}>Hypermantis</NavItem>
+            <NavItem href={"/" + lang + "/projects/other-project"}>Other Project</NavItem>
+          </ul>
+        </div>
+      </ul>
+    </nav>
+  )
+}
+export default NavBar
+
+type Texts = (lang: string) => {
+  home: string;
+  projects: string;
+};
+const getTexts: Texts = (lang) => {
+  const en = {
+    home: 'Home',
+    projects: 'Projects'
+  }
+  const es = {
+    home: 'Inicio',
+    projects: 'Proyectos'
+  }
+  switch (lang) {
+    case 'en':
+      return en;
+    case 'es':
+      return es
+    default:
+      return es
+  }
+}
+
+const NavItem = ({ children, href }: { children?: ReactNode, href: string }) => {
+  return (
+    <li className="inline-block px-4 py-2 text-lg hover:bg-juan-black rounded-xl hover:scale-110 hover:border border-juan-dark dark:border-juan-light-second transition duration-150">
+      <Link className="" href={href}>{children}</Link>
+    </li>
+  )
+}
+
+type ContentType = {
+  title: string;
+  description: string;
+  href: string;
+}
+const NavItemDropMenu = ({ children, href, content }: { children?: ReactNode, href: string, content: ContentType[] }) => {
+  return (
+    <>
+      <li className="group  inline-block px-4 py-2 text-lg hover:bg-juan-black rounded-xl hover:scale-110 hover:border border-juan-dark dark:border-juan-light-second transition duration-150">
+        <Link className="" href={href}>{children}</Link>
+        <ul className="absolute left-0 top-[103%]  hidden group-hover:block group-focus:block text-sm w-fit dark:border-0 border border-slate-200 bg-juan-dark rounded-lg p-4">
+          {
+            content.map((item, index) => (
+
+              <li key={index} className="w-sm px-4 py-2  bg-juan-dark text-juan-white hover:bg-juan-light-second  rounded-xl hover:scale-x-105 transition duration-150">
+                <Link className="" href={item.href}>
+                  <div className="">
+                    {item.title}
+                  </div>
+                  <div className="text-xs text-neutral-100">
+                    {item.description}
+                  </div>
+                </Link>
+              </li>
+            ))
+          }
+        </ul>
+      </li>
+
+    </>
+  )
+}
