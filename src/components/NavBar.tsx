@@ -1,10 +1,10 @@
 import Link from "next/link"
 import { ReactNode } from "react"
 const NavBar = ({ lang }: { lang: string }) => {
-  const { home, projects } = getTexts(lang)
+  const { home, projects, hypermantis } = getTexts(lang)
   return (
-    <nav className="absolute *: self-center  w-screen text-white top-4">
-      <ul className="w-fit mx-auto border border-neutral-200 dark:border-neutral-700 bg-juan-dark rounded-xl shadow-lg font-light">
+    <nav className="absolute  self-center  top-4 z-10 right-[50%] translate-x-[50%]">
+      <ul className="w-fit mx-auto border border-neutral-200 dark:border-neutral-700 bg-juan-dark rounded-xl shadow-lg font-light z-20 text-juan-white text-center">
         <NavItem href={"/" + lang}>
           {home}
         </NavItem>
@@ -12,7 +12,7 @@ const NavBar = ({ lang }: { lang: string }) => {
           [
             {
               title: 'Hypermantis',
-              description: 'Aplicación de escritorio para visualizar imágenes hiperespectrales',
+              description: hypermantis,
               href: '/' + lang + '/projects/hypermantis'
             },
             {
@@ -42,15 +42,18 @@ export default NavBar
 type Texts = (lang: string) => {
   home: string;
   projects: string;
+  hypermantis: string; // Optional for other languages
 };
 const getTexts: Texts = (lang) => {
   const en = {
-    home: 'Home',
-    projects: 'Projects'
+    home: 'About me',
+    projects: 'Projects',
+    hypermantis: 'Desktop application to visualize hyperspectral images',
   }
   const es = {
-    home: 'Inicio',
-    projects: 'Proyectos'
+    home: 'Sobre mí',
+    projects: 'Proyectos',
+    hypermantis: 'Aplicación de escritorio para visualizar imágenes hiperespectrales',
   }
   switch (lang) {
     case 'en':
@@ -64,7 +67,7 @@ const getTexts: Texts = (lang) => {
 
 const NavItem = ({ children, href }: { children?: ReactNode, href: string }) => {
   return (
-    <li className="inline-block px-4 py-2 text-lg hover:bg-juan-black rounded-xl hover:scale-110 hover:border border-juan-dark dark:border-juan-light-second transition duration-150">
+    <li className="inline-block px-4 py-2 text-lg hover:bg-juan-black rounded-xl hover:scale-110 hover:border border-juan-dark dark:border-juan-light-second transition duration-150 z-10">
       <Link className="" href={href}>{children}</Link>
     </li>
   )

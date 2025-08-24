@@ -1,7 +1,10 @@
+import Background1 from "@/assets/Background1";
+import Background2 from "@/assets/Background2";
+
 import { BiLogoPostgresql } from "react-icons/bi";
 import { FaPython } from "react-icons/fa";
 import { RiNextjsFill, RiReactjsFill } from "react-icons/ri";
-import { SiJavascript } from "react-icons/si";
+import { SiTypescript } from "react-icons/si";
 import { VscGraph } from "react-icons/vsc";
 
 export default async function Page({
@@ -11,32 +14,35 @@ export default async function Page({
 }) {
   const { lang } = await params
   const { degree, description } = getTexts(lang as 'en' | 'es');
-  return <main className=" h-screen w-screen dark:bg-juan-black bg-juan-light dark:text-juan-light text-juan-black grid place-items-center  p-4 text-center sm:text-left">
-
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 items-center justify-items-center">
-      <div className="max-w-xl">
-        <div className="transition duration-300 hover:scale-105 ">
-          <h1 className="text-4xl font-medium ">
-            Juan Manuel Sandoval Olavarría
-          </h1>
-          <h2 className="font-normal text-xl ">
-            {degree}
-          </h2>
+  return (
+    <main className=" h-screen w-screen dark:bg-juan-black bg-juan-light dark:text-juan-light text-juan-black grid place-items-center  p-4 text-center sm:text-left">
+      <Background1 />
+      <Background2/>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 items-center justify-items-center z-10">
+        <div className="max-w-xl">
+          <div className="transition duration-300 hover:scale-105 ">
+            <h1 className="text-4xl font-medium ">
+              Juan Manuel Sandoval Olavarría
+            </h1>
+            <h2 className="font-normal text-xl ">
+              {degree}
+            </h2>
+          </div>
+          <p className="font-light text-lg mt-4 second rounded-md transition duration-300 hover:scale-110  p-1">
+            {description}
+          </p>
         </div>
-        <p className="font-light text-lg mt-4 second rounded-md transition duration-300 hover:scale-110  p-1">
-          {description}
-        </p>
+        <div className="grid grid-cols-3 gap-y-4 gap-x-8">
+          <RiNextjsFill className="w-20 h-20" />
+          <RiReactjsFill className="w-20 h-20" />
+          <BiLogoPostgresql className="w-20 h-20" />
+          <FaPython className="w-20 h-20" />
+          <SiTypescript className="w-20 h-20" />
+          <VscGraph className="w-20 h-20" />
+        </div>
       </div>
-      <div className="grid grid-cols-3 gap-y-4 gap-x-8">
-        <RiNextjsFill className="w-20 h-20" />
-        <RiReactjsFill   className="w-20 h-20" />
-        <BiLogoPostgresql  className="w-20 h-20"  />
-        <FaPython  className="w-20 h-20"/>
-        <SiJavascript  className="w-20 h-20"/>
-        <VscGraph  className="w-20 h-20"/>
-      </div>
-    </div>
-  </main>
+    </main>
+  )
 }
 
 type Texts = (lang: 'en' | 'es') => {
