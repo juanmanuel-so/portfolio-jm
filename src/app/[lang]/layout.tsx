@@ -7,8 +7,6 @@ import { cookies } from "next/headers";
 import ThemeSwitch from '@/components/ThemeSwitch'
 
 import LangSwitch from "@/components/LangSwitch";
-import Background2 from "@/assets/Background2";
-import Background1 from "@/assets/Background1";
 
 const host = Host_Grotesk({})
 export const metadata: Metadata = {
@@ -22,7 +20,7 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { lang: string };
+  params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
   const cookiesHeader = await cookies();
