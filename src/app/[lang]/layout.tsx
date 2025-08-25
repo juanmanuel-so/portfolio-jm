@@ -45,11 +45,11 @@ export default async function RootLayout({
           />
         )}
       </head>
-      <body className={`${host.className} ${cookieTheme === "dark" ? "dark" : 'light'} ` }>
+      <body className={`${host.className} ${cookieTheme === "dark" ? "dark" : 'light'} h-dvh w-screen  overflow-y-auto dark:bg-juan-black bg-juan-light dark:text-juan-light text-juan-black`}>
           
           {children}
           <NavBar lang={lang} />
-          <footer>
+          <footer className="sticky bottom=0 z-10">
             <LangSwitch current={lang} />
             <ThemeSwitch />
           </footer>

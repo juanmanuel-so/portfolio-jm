@@ -6,7 +6,7 @@ const hypermantis = async ({params}:{params:Promise<{lang:string}>}) => {
   const { lang } = await params;
   const { subtitle, description, download } = getTexts(lang);
   return (
-    <main className="dark:bg-juan-black bg-juan-light dark:text-juan-light text-juan-black w-screen h-dvh pt-25 overflow-y-auto">
+    <main className="h-fit min-h-full w-full dark:bg-juan-black bg-juan-light dark:text-juan-light text-juan-black grid place-items-center  p-4 text-center sm:text-left">
       <section className="flex flex-col items-start justify-center w-screen max-w-5xl mx-auto px-4 h-fit dark:text-juan-light text-juan-black ">
         <h1 className="text-4xl text-left tracking-tight font-medium ">
           Hypermantis
