@@ -12,9 +12,9 @@ export default async function Page({
   const { lang } = await params
   const { degree, description } = getTexts(lang as 'en' | 'es');
   return (
-    <section className="flex-1 flex flex-col items-center justify-center p-20 ">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 items-center justify-items-center z-10 mt-28 sm:mt-0">
-        <div className="max-w-xl">
+    <section className="flex-1 flex flex-col items-center justify-center  ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 items-center justify-items-center z-10 text-center sm:text-left w-fit px-6">
+        <div className="max-w-lg w-fit">
           <div className="transition duration-300 hover:scale-105 ">
             <h1 className="text-4xl font-medium ">
               Juan Manuel Sandoval Olavarría
@@ -27,7 +27,7 @@ export default async function Page({
             {description}
           </p>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-4 gap-x-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-4 gap-x-8 w-fit">
           <RiNextjsFill className="w-20 h-20 transition hover:scale-120 duration-200 " />
           <RiReactjsFill className="w-20 h-20 transition hover:scale-120 duration-200" />
           <BiLogoPostgresql className="w-20 h-20 transition hover:scale-120 duration-200" />
