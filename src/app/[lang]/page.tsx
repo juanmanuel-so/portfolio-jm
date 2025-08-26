@@ -13,7 +13,7 @@ export default async function Page({
   const { degree, description } = getTexts(lang as 'en' | 'es');
   return (
     <section className="flex-1 flex flex-col items-center justify-center  ">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 items-center justify-items-center z-10 text-center sm:text-left w-fit px-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 items-center justify-items-center z-10 text-center sm:text-left w-fit px-6 py-2">
         <div className="max-w-lg w-fit">
           <div className="transition duration-300 hover:scale-105 ">
             <h1 className="text-4xl font-medium ">
