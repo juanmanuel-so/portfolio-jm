@@ -4,7 +4,7 @@ export default async function LangSwitch({ current }: { current: string }) {
 
   return (
 
-    <Link href={current === "en" ? "/es" : "/en"} className="fixed bottom-5 left-5">
+    <Link href={current === "en" ? "/es" : "/en"} className=" bottom-5 left-5 h-fit">
       <button
         type="submit"
         aria-label="Cambiar tema"

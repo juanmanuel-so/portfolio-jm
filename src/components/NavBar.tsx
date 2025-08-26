@@ -3,8 +3,8 @@ import { ReactNode } from "react"
 const NavBar = ({ lang }: { lang: string }) => {
   const { home, projects, hypermantis } = getTexts(lang)
   return (
-    <nav className="absolute  self-center  top-4 z-10 right-[50%] translate-x-[50%]">
-      <ul className="w-fit mx-auto border border-neutral-200 dark:border-neutral-700 bg-juan-dark rounded-xl shadow-lg font-light z-20 text-juan-white text-center">
+    <nav className="h-fit z-30">
+      <ul className="h-fit w-fit border flex flex-row border-neutral-200 dark:border-neutral-700 bg-juan-dark rounded-xl shadow-lg font-light text-juan-white text-center">
         <NavItem href={"/" + lang}>
           {home}
         </NavItem>
@@ -67,7 +67,7 @@ const getTexts: Texts = (lang) => {
 
 const NavItem = ({ children, href }: { children?: ReactNode, href: string }) => {
   return (
-    <li className="inline-block px-4 py-2 text-lg hover:bg-juan-black rounded-xl hover:scale-110 hover:border border-juan-dark dark:border-juan-light-second transition duration-150 z-10">
+    <li className=" px-4 py-2 text-lg hover:bg-juan-black rounded-xl hover:scale-110  border-juan-dark  transition duration-150 z-10">
       <Link className="" href={href}>{children}</Link>
     </li>
   )
@@ -81,13 +81,13 @@ type ContentType = {
 const NavItemDropMenu = ({ children, href, content }: { children?: ReactNode, href: string, content: ContentType[] }) => {
   return (
     <>
-      <li className="group  inline-block px-4 py-2 text-lg hover:bg-juan-black rounded-xl hover:scale-110 hover:border border-juan-dark dark:border-juan-light-second transition duration-150">
+      <li className="group z-50 px-4 py-2 text-lg hover:bg-juan-black rounded-xl hover:scale-110  border-juan-dark transition duration-150">
         <Link className="" href={href}>{children}</Link>
-        <ul className="absolute left-0 top-[103%]  hidden group-hover:block group-focus:block text-sm w-fit dark:border-0 border border-slate-200 bg-juan-dark rounded-lg p-4">
+        <ul className="absolute left-0 top-[100%]  z-50 hidden group-hover:block group-focus:block text-sm w-fit dark:border-0 border border-slate-200 bg-juan-dark rounded-lg p-4">
           {
             content.map((item, index) => (
 
-              <li key={index} className="w-sm px-4 py-2  bg-juan-dark text-juan-white hover:bg-juan-light-second  rounded-xl hover:scale-x-105 transition duration-150">
+              <li key={index} className="w-sm px-4 py-2  z-50 bg-juan-dark text-juan-white hover:bg-juan-light-second  rounded-xl hover:scale-x-105 transition duration-150">
                 <Link className="" href={item.href}>
                   <div className="">
                     {item.title}

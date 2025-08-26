@@ -1,6 +1,3 @@
-import Background1 from "@/assets/Background1";
-import Background2 from "@/assets/Background2";
-
 import { BiLogoPostgresql } from "react-icons/bi";
 import { FaPython } from "react-icons/fa";
 import { RiNextjsFill, RiReactjsFill } from "react-icons/ri";
@@ -15,9 +12,7 @@ export default async function Page({
   const { lang } = await params
   const { degree, description } = getTexts(lang as 'en' | 'es');
   return (
-    <main className="h-fit min-h-full w-full dark:bg-juan-black bg-juan-light dark:text-juan-light text-juan-black grid place-items-center  p-4 text-center sm:text-left">
-      <Background1 />
-      <Background2/>
+    <section className="flex-1 flex flex-col items-center justify-center p-20 ">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 items-center justify-items-center z-10 mt-28 sm:mt-0">
         <div className="max-w-xl">
           <div className="transition duration-300 hover:scale-105 ">
@@ -33,15 +28,15 @@ export default async function Page({
           </p>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-4 gap-x-8">
-          <RiNextjsFill className="w-20 h-20" />
-          <RiReactjsFill className="w-20 h-20" />
-          <BiLogoPostgresql className="w-20 h-20" />
-          <FaPython className="w-20 h-20" />
-          <SiTypescript className="w-20 h-20" />
-          <VscGraph className="w-20 h-20" />
+          <RiNextjsFill className="w-20 h-20 transition hover:scale-120 duration-200 " />
+          <RiReactjsFill className="w-20 h-20 transition hover:scale-120 duration-200" />
+          <BiLogoPostgresql className="w-20 h-20 transition hover:scale-120 duration-200" />
+          <FaPython className="w-20 h-20 transition hover:scale-120 duration-200" />
+          <SiTypescript className="w-20 h-20 transition hover:scale-120 duration-200" />
+          <VscGraph className="w-20 h-20 transition hover:scale-120 duration-200" />
         </div>
       </div>
-    </main>
+    </section>
   )
 }
 
