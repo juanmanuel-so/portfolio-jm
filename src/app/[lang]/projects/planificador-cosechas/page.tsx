@@ -14,7 +14,7 @@ const hypermantis = async ({ params }: { params: Promise<{ lang: string }> }) =>
       <p className="text-lg text-left tracking-tight font-light mt-4">
         {description}
       </p>
-      <Link  href="https://https://demo-proyeccion.vercel.app" className="mt-8 cursor-pointer" target="_blank" rel="noopener noreferrer">
+      <Link  href="https://demo-proyeccion.vercel.app" className="mt-8 cursor-pointer" target="_blank" rel="noopener noreferrer">
         <button className="w-full rounded-xl border border-juan-dark bg-juan-black hover:bg-juan-light-second text-juan-light-third text-xl mt-8 py-4 px-2 transition duration-300 hover:scale-105">
           {visit}
         </button>
