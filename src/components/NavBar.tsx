@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { ReactNode } from "react"
 const NavBar = ({ lang }: { lang: string }) => {
-  const { home, projects, hypermantis } = getTexts(lang)
+  const { home, projects, hypermantis ,sapec} = getTexts(lang)
   return (
     <nav className="h-fit z-30">
       <ul className="h-fit w-fit border flex flex-row border-neutral-200 dark:border-neutral-700 bg-juan-dark rounded-xl shadow-lg font-light text-juan-white text-center">
@@ -16,9 +16,14 @@ const NavBar = ({ lang }: { lang: string }) => {
               href: '/' + lang + '/projects/hypermantis'
             },
             {
-              title: 'Otro Proyecto',
-              description: 'Descripción del otro proyecto',
-              href: '/' + lang + '/projects/other-project'
+              title: 'Sapec',
+              description: sapec,
+              href: '/' + lang + '/projects/sapec'
+            },
+            {
+              title: 'Planificador de cosechas',
+              description: 'Web application for planning boat movements',
+              href: '/' + lang + '/projects/planificador-cosechas'
             }
           ]
         }>
@@ -42,6 +47,7 @@ export default NavBar
 type Texts = (lang: string) => {
   home: string;
   projects: string;
+  sapec: string; // Optional for other languages
   hypermantis: string; // Optional for other languages
 };
 const getTexts: Texts = (lang) => {
@@ -49,11 +55,13 @@ const getTexts: Texts = (lang) => {
     home: 'About me',
     projects: 'Projects',
     hypermantis: 'Desktop application to visualize hyperspectral images',
+    sapec: 'Web application for surveys for teachers',
   }
   const es = {
     home: 'Sobre mí',
     projects: 'Proyectos',
     hypermantis: 'Aplicación de escritorio para visualizar imágenes hiperespectrales',
+    sapec: 'Aplicación web de encuestas para docentes',
   }
   switch (lang) {
     case 'en':

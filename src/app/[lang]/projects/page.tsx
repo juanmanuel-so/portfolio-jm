@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default async function Page(
   {
     params
@@ -7,6 +9,8 @@ export default async function Page(
 ) {
   const { lang } = await params;
   const { title, description } = getTexts(lang);
+  const projects = getProjects(lang);
+
   return (
     <>
       <main className="dark:bg-juan-black bg-juan-light dark:text-juan-light text-juan-black w-full h-full pt-25">
@@ -18,10 +22,23 @@ export default async function Page(
             {description}
           </h2>
         </section>
+
+        <section className="w-screen max-w-5xl mx-auto px-4 mt-6">
+          <ul className="grid gap-4 sm:grid-cols-2">
+            {projects.map((p) => (
+              <li key={p.href} className="border dark:border-juan-light/20 border-juan-black/20 rounded-lg p-4 hover:shadow transition">
+                <Link href={p.href} className="block">
+                  <h3 className="text-xl font-medium">{p.title}</h3>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
       </main>
     </>
   );
 }
+
 const getTexts = (lang: string) => {
   const es = {
     title: 'Proyectos',
@@ -39,4 +56,21 @@ const getTexts = (lang: string) => {
     default:
       return es;
   }
+}
+
+const getProjects = (lang: string) => {
+  return [
+    {
+      title: 'Hypermantis',
+      href: `/${lang}/projects/hypermantis`,
+    },
+    {
+      title: 'Sapec',
+      href: `/${lang}/projects/sapec`,
+    },
+    {
+      title: 'Planificador de cosechas',
+      href: `/${lang}/projects/planificador-cosechas`,
+    }
+  ];
 }
