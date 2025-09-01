@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { ReactNode } from "react"
 const NavBar = ({ lang }: { lang: string }) => {
-  const { home, projects, hypermantis ,sapec} = getTexts(lang)
+  const { home, projects, hypermantis ,sapec, plan} = getTexts(lang)
   return (
     <nav className="h-fit z-30">
       <ul className="h-fit w-fit border flex flex-row border-neutral-200 dark:border-neutral-700 bg-juan-dark rounded-xl shadow-lg font-light text-juan-white text-center">
@@ -22,7 +22,7 @@ const NavBar = ({ lang }: { lang: string }) => {
             },
             {
               title: 'Planificador de cosechas',
-              description: 'Web application for planning boat movements',
+              description: plan,
               href: '/' + lang + '/projects/planificador-cosechas'
             }
           ]
@@ -56,12 +56,14 @@ const getTexts: Texts = (lang) => {
     projects: 'Projects',
     hypermantis: 'Desktop application to visualize hyperspectral images',
     sapec: 'Web application for surveys for teachers',
+    plan: 'Application for ship movements',
   }
   const es = {
     home: 'Sobre mí',
     projects: 'Proyectos',
     hypermantis: 'Aplicación de escritorio para visualizar imágenes hiperespectrales',
     sapec: 'Aplicación web de encuestas para docentes',
+    plan: 'Aplicación para movimientos de barcos',
   }
   switch (lang) {
     case 'en':
